@@ -1,0 +1,11 @@
+<stack>
+  <description brief="neo_apps">neo_apps</description>
+  <author>Maintained by mob</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/neo_apps</url>
+  <depend stack="common_msgs" /> <!-- trajectory_msgs, geometry_msgs -->
+  <depend stack="neo_driver" /> <!-- neo_joy -->
+  <depend stack="ros" />
+
+</stack>

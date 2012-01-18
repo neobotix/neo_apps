@@ -1,0 +1,18 @@
+<launch>
+	<group>
+
+		<!--robot platform-->
+		<include file="$(find neo_serrelayboard)/ros/launch/relayboard.launch"/>
+		<include file="$(find neo_srbdrive)/ros/launch/srb_drives.launch"/>
+		<include file="$(find neo_platformctrl_diff)/ros/launch/srb_PlatformCtrl.launch"/>
+		<!--sensors-->
+		<include file="$(find neo_sick_s300)/ros/launch/sick_s300.launch"/>
+		<!--tele operator-->
+		<include file="$(find neo_teleop)/ros/launch/teleop.launch"/>
+		<!--tf broadcaster-->
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find neo_description_mp_500)/ros/robot/mp_500.urdf.xacro'" />
+		<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen" >
+			<param name="publish_frequency" type="double" value="50.0" />
+		</node>
+	</group>
+</launch>

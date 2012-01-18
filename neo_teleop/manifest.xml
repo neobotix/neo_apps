@@ -1,0 +1,16 @@
+<package>
+  <description brief="neo_teleop">
+
+     neo_teleop
+
+  </description>
+  <author>mob</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/neo_teleop</url>
+  <depend package="neo_joy"/>
+  <depend package="geometry_msgs"/>
+  <depend package="trajectory_msgs"/>
+</package>
+
+

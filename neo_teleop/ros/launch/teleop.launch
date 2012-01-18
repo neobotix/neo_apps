@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+
+	<!-- upload parameters-->
+	<rosparam command="load" ns="neo_teleop/joy" file="$(find neo_teleop)/ros/launch/teleop.yaml"/>
+	<rosparam command="load" ns="neo_teleop" file="$(find neo_teleop)/ros/launch/$(env ROBOT).yaml"/>
+
+	<!-- start cob teleop node -->
+	<node pkg="neo_teleop" type="neo_teleop" name="neo_teleop_node" ns="neo_teleop" output="screen"/>
+
+	<!-- run joystick -->
+	<include file="$(find neo_joy)/ros/launch/joy.launch" />
+
+</launch>

@@ -1,0 +1,29 @@
+<launch>
+	<group>
+
+		<!--robot platform-->
+		<include file="$(find neo_base_drive_can)/ros/launch/base_drive_chain.launch"/>
+		<include file="$(find neo_platformctrl_mecanum)/ros/launch/platformCtrl.launch"/>
+		<include file="$(find neo_serrelayboard)/ros/launch/relayboard.launch">
+			<arg name="loadDrives" value="false"/>
+		</include>
+		<!--tf broadcaster-->
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find neo_description_mpo_500)/ros/robot/mpo_500.urdf.xacro'" />
+		<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen" >
+			<param name="publish_frequency" type="double" value="100.0" />
+		</node>
+		<!--sensors-->
+		<include file="$(find neo_sick_s300)/ros/launch/sick_s300.launch">
+			<arg name="name" value="sick_front"/>
+			<arg name="scanner_type" value="$(env ROBOT)_front"/>
+		</include>
+		<include file="$(find neo_sick_s300)/ros/launch/sick_s300.launch">
+			<arg name="name" value="sick_back"/>
+			<arg name="scanner_type" value="$(env ROBOT)_back"/>
+		</include>
+		<include file="$(find neo_sick_s300)/ros/launch/unify_scans.launch"/>
+		<!--tele operator-->
+		<include file="$(find neo_teleop)/ros/launch/teleop.launch"/>
+
+	</group>
+</launch>

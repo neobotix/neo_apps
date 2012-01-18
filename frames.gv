@@ -1,0 +1,10 @@
+digraph G {
+"/base_link" -> "/base_frame"[label="Broadcaster: /base_link\nAverage rate: 96.629 Hz\nMost recent transform: -0.005 sec old \nBuffer length: 4.833 sec\n"];
+"/base_frame" -> "/base_laser_link"[label="Broadcaster: /sick_s300/sick_s300_tf\nAverage rate: 5.212 Hz\nMost recent transform: 0.042 sec old \nBuffer length: 4.797 sec\n"];
+"/base_laser_link" -> "/base_laser"[label="Broadcaster: /base_laser\nAverage rate: 96.755 Hz\nMost recent transform: 0.001 sec old \nBuffer length: 4.827 sec\n"];
+"/base_frame" -> "/odom"[label="Broadcaster: /odom\nAverage rate: 96.678 Hz\nMost recent transform: -0.006 sec old \nBuffer length: 4.810 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1321959263.176"[ shape=plaintext ] ;
+ }->"/base_link";
+}
