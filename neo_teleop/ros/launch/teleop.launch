@@ -9,6 +9,6 @@
 	<node pkg="neo_teleop" type="neo_teleop" name="neo_teleop_node" ns="neo_teleop" output="screen"/>
 
 	<!-- run joystick -->
-	<include file="$(find neo_joy)/ros/launch/joy.launch" />
+	<include file="$(find neo_teleop)/ros/launch/joy.launch" />
 
 </launch>
