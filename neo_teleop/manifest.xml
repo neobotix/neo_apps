@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/neo_teleop</url>
   <depend package="geometry_msgs"/>
   <depend package="trajectory_msgs"/>
+  <depend package="sensor_msgs"/>
 </package>
 
 
