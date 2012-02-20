@@ -2,11 +2,11 @@
 	<group>
 
 		<!--robot platform-->
-		<include file="$(find neo_serrelayboard)/ros/launch/relayboard.launch"/>
-		<include file="$(find neo_srbdrive)/ros/launch/srb_drives.launch"/>
-		<include file="$(find neo_platformctrl_diff)/ros/launch/srb_PlatformCtrl.launch"/>
+		<include file="$(find neo_base_mp_500)/ros/launch/serrelay/relayboard.launch"/>
+		<include file="$(find neo_base_mp_500)/ros/launch/serrelay/srb_drives.launch"/>
+		<include file="$(find neo_base_mp_500)/ros/launch/platform_ctrl/srb_PlatformCtrl.launch"/>
 		<!--sensors-->
-		<include file="$(find neo_sick_s300)/ros/launch/sick_s300.launch"/>
+		<include file="$(find neo_base_mp_500)/ros/launch/sick/sick_s300.launch"/>
 		<!--tele operator-->
 		<include file="$(find neo_teleop)/ros/launch/teleop.launch"/>
 		<!--tf broadcaster-->
