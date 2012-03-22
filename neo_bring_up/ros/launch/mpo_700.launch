@@ -13,6 +13,8 @@
 		<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
 
 		<!--tele operator-->
-		<include file="$(find neo_teleop)/ros/launch/teleop.launch"/>
+		<include file="$(find neo_teleop)/ros/launch/teleop.launch">
+			<arg name="topicCmdVel" value="/base_controller/command"/> <!--TODO: relativ topic names-->
+		</include>
 	</group>
 </launch>
