@@ -7,7 +7,7 @@
 
 	<!-- start cob teleop node -->
 	<node pkg="neo_teleop" type="neo_teleop" name="neo_teleop_node" ns="neo_teleop" output="screen">
-		<remap from="/cmd_vel" to="$(arg topicCmdVel)"/>
+		<!--<remap from="/cmd_vel" to="$(arg topicCmdVel)"/> -->
 
 	</node>
 
