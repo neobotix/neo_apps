@@ -1,12 +1,15 @@
 <?xml version="1.0" ?>
 <launch>
-
+	<arg name="topicCmdVel" default="/cmd_vel"/>
 	<!-- upload parameters-->
 	<rosparam command="load" ns="neo_teleop/joy" file="$(find neo_teleop)/ros/launch/teleop.yaml"/>
 	<rosparam command="load" ns="neo_teleop" file="$(find neo_teleop)/ros/launch/$(env ROBOT).yaml"/>
 
 	<!-- start cob teleop node -->
-	<node pkg="neo_teleop" type="neo_teleop" name="neo_teleop_node" ns="neo_teleop" output="screen"/>
+	<node pkg="neo_teleop" type="neo_teleop" name="neo_teleop_node" ns="neo_teleop" output="screen">
+		<remap from="/cmd_vel" to="$(arg topicCmdVel)"/>
+
+	</node>
 
 	<!-- run joystick -->
 	<include file="$(find neo_teleop)/ros/launch/joy.launch" />

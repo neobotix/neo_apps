@@ -1,9 +1,13 @@
+<?xml version="1.0"?>
+
 <launch>
 	<group>
 
 		<!--robot platform-->
 		<include file="$(find neo_base_mpo_500)/ros/launch/base_drive/base_drive_chain.launch"/>
-		<include file="$(find neo_base_mpo_500)/ros/launch/platform_ctrl/platformCtrl.launch"/>
+		<include file="$(find neo_base_mpo_500)/ros/launch/platform_ctrl/platformCtrl.launch">
+			<arg name="topic_cmd_vel" value="/base_controller/command"/>
+		</include>
 		<include file="$(find neo_base_mpo_500)/ros/launch/serrelay/relayboard.launch">
 			<arg name="loadDrives" value="false"/>
 		</include>
@@ -23,7 +27,9 @@
 			<param name="publish_frequency" type="double" value="100.0" />
 		</node>
 		<!--tele operator-->
-		<include file="$(find neo_teleop)/ros/launch/teleop.launch"/>
+		<include file="$(find neo_teleop)/ros/launch/teleop.launch">
+			<arg name="topicCmdVel" value="/base_controller/command"/>
+		</include>
 
 	</group>
 </launch>

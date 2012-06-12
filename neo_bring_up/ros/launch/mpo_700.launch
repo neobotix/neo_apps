@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+	<group>
+		<!--robot platform-->
+		<include file="$(find neo_base_mpo_700)/ros/launch/base_drive/base.launch"/>
+		<include file="$(find neo_base_mpo_700)/ros/launch/relayboard/relayboard.launch">
+			<arg name="loadDrives" value="false"/>
+		</include>
+		<include file="$(find neo_base_mpo_700)/ros/launch/sick/sick_s300.launch"/>
+
+		<!-- send cob urdf to param server -->
+		<param name="robot_description" command="$(find xacro)/xacro.py '$(find neo_description_mpo_700)/urdf/robot.urdf.xacro'" />
+		<!-- start robot_state_publisher -->
+		<node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher"/>
+
+		<!--tele operator-->
+		<include file="$(find neo_teleop)/ros/launch/teleop.launch">
+			<arg name="topicCmdVel" value="/base_controller/command"/> <!--TODO: relativ topic names-->
+		</include>
+	</group>
+</launch>
