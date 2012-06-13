@@ -2,7 +2,6 @@
 
 <launch>
 	<group>
-
 		<!--robot platform-->
 		<include file="$(find neo_base_mpo_500)/ros/launch/base_drive/base_drive_chain.launch"/>
 		<include file="$(find neo_base_mpo_500)/ros/launch/platform_ctrl/platformCtrl.launch">
