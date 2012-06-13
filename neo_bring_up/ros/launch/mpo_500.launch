@@ -11,6 +11,7 @@
 		<include file="$(find neo_base_mpo_500)/ros/launch/serrelay/relayboard.launch">
 			<arg name="loadDrives" value="false"/>
 		</include>
+		<include file="$(find neo_base_mp_500)/ros/launch/serrelay/srb_drives.launch"/>
 		<!--sensors-->
 		<include file="$(find neo_base_mpo_500)/ros/launch/sick/sick_s300.launch">
 			<arg name="name" value="sick_front"/>
